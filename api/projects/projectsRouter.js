@@ -9,8 +9,14 @@ router.post('/', (req, res) => {
             res.status(201).json({ id: id[0], ...req.body });
         })
         .catch(() => {
-            res.status(500).json({ error: `Couldn't add project to database.` });
+            res.status(500).json({ 
+                error: `Couldn't add project to database. Make sure to include a name.` 
+            });
         });
+})
+
+router.get('/:id', (req, res) => {
+
 })
 
 module.exports = router;

@@ -9,7 +9,9 @@ router.post('/', (req, res) => {
             res.status(201).json({ id: id[0], ...req.body });
         })
         .catch(() => {
-            res.status(500).json({ error: `Couldn't add action to database.` });
+            res.status(500).json({ 
+                error: `Couldn't add action to database. Make sure to include a description and project_id.` 
+            });
         });
 })
 
