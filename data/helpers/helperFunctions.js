@@ -8,4 +8,8 @@ const addProject = project => {
     return db('projects').insert(project);
 }
 
-module.exports = { addProject };
+const addAction = action => {
+    return db('actions').insert(action);
+}
+
+module.exports = { addProject, addAction };
