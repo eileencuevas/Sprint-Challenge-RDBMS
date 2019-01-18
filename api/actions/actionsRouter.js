@@ -2,6 +2,17 @@ const express = require('express');
 const helpers = require('../../data/helpers/helperFunctions');
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    helpers
+        .getActions()
+        .then(actions => {
+            res.status(200).json(actions);
+        })
+        .catch(() => {
+            res.status(500).json({ error:`Couldn't retrieve actions. Try again.` });
+        });
+})
+
 router.post('/', (req, res) => {
     helpers
         .addAction(req.body)
